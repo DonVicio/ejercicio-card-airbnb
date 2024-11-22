@@ -153,7 +153,7 @@ article.card__container > main.card__text-container > div.card__title-container 
 article.card__container > main.card__text-container > p.card__description,
 article.card__container > main.card__text-container > p.card__date
 {
-  color: #a6a6a6;
+  color: grey;
 }
 
 article.card__container > main.card__text-container > div.card__title-container > div.card__rating{
