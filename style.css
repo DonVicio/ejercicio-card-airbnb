@@ -13,9 +13,16 @@ article.card__container{
   box-sizing: border-box;
   width: 288px;
   max-width: 320px;
-  /* background-color: white;  */
   padding: 8px;
-  border-radius: 20px;
+  border-radius: 20px 20px 10px 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+article.card__container:hover{
+background-color: white;
+transform: scale(1.01);
+transition: all 0.3s ease-in-out;
+box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.2);
 }
 
 article.card__container > header.card__image-container{
@@ -35,7 +42,7 @@ article.card__container > header.card__image-container > img.card__image{
   object-position: center;
 }
 
-article.card__container > header.card__image-container > .card__tag-container > .card__tag{
+article.card__container > header.card__image-container > div.card__tag-container > span.card__tag{
   position: absolute;
   box-sizing: border-box;
   top: 14px;
@@ -53,6 +60,29 @@ article.card__container > header.card__image-container > .card__tag-container > 
   overflow: hidden;
   text-overflow: ellipsis;
   box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+}
+
+article.card__container > header.card__image-container > div.card__tag-container > div.card__fav-trigger{
+  position: absolute;
+  top: 14px;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  padding: 4px;
+}
+
+article.card__container > header.card__image-container > div.card__tag-container > div.card__fav-trigger--inactive > svg.icon{
+  overflow: visible;
+  stroke: #fff;
+  stroke-width: 50px;
+  fill: rgba(0, 0, 0, 0.4);
+  transition: all 0.3s;
+}
+
+article.card__container > header.card__image-container > div.card__tag-container > div.card__fav-trigger--inactive > svg.icon:hover{
+  fill: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s;
+  cursor: pointer;
 }
 
 article.card__container > header.card__image-container > .card__carousel-control{
@@ -101,8 +131,14 @@ article.card__container > footer.card__price > p {
   margin-bottom: 3px;
 }
 
+article.card__container > footer.card__price > p {
+  margin-bottom: 0;
+}
+
 article.card__container > main.card__text-container > div.card__title-container{
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 3px;
 }
 
@@ -120,10 +156,21 @@ article.card__container > main.card__text-container > p.card__date
   color: #a6a6a6;
 }
 
-article.card__container > main.card__text-container > div.card__title-container > span.card__rating{
-  position: absolute;
-  top: 0;
-  right: 0;
+article.card__container > main.card__text-container > div.card__title-container > div.card__rating{
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+article.card__container > main.card__text-container > div.card__title-container > div.card__rating > div{
+  display: inline-block;
+}
+
+article.card__container > main.card__text-container > div.card__title-container > div.card__rating > div.card__rating-star{
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  padding: 2px;
 }
 
 article.card__container > footer.card__price > p > span{
