@@ -6,7 +6,7 @@ body{
   height: calc(100vh - 20px);
   justify-content: center;
   align-items: center;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
 }
 
 article.card__container{
@@ -48,7 +48,6 @@ article.card__container > header.card__image-container > div.card__tag-container
   top: 14px;
   left: 12px;
   background-color: #fff;
-  border-radius: 6px;
   font-size: 14px;
   font-weight: bold;
   letter-spacing: -0.14px;
