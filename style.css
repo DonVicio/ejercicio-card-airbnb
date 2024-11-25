@@ -1,111 +1,201 @@
+:root {
+
+/* Variables reshulonas para cards reshulonas */
+
+  /* color */
+  --fg-color: #222;
+  --fg-color-subtle: grey;
+  --bg-page: #eee;
+  --bg-card: white;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --inactive-color: rgba(0, 0, 0, 0.4);
+  --active-color: rgba(255, 255, 255, 0.4);
+
+  /* dimension */
+  --none: 0px;
+  --unit: 1px;
+  --base: 4px;
+  --size50: calc(var(--base) / 2);    /* 2 */
+  --size100: calc(var(--base) * 1);   /* 4 */
+  --size150: calc(var(--base) * 1.5); /* 6 */
+  --size200: calc(var(--base) * 2);   /* 8 */
+  --size250: calc(var(--base) * 2.5); /* 10 */
+  --size300: calc(var(--base) * 3);   /* 12 */
+  --size350: calc(var(--base) * 3.5); /* 14 */
+  --size400: calc(var(--base) * 4);   /* 16 */
+  --size450: calc(var(--base) * 4.5); /* 18 */
+  --size500: calc(var(--base) * 5);   /* 20 */
+  --size600: calc(var(--base) * 6);   /* 24 */
+  --size700: calc(var(--base) * 7);   /* 28 */
+  --size800: calc(var(--base) * 8);   /* 32 */
+  --size900: calc(var(--base) * 9);   /* 36 */
+  --size1000: calc(var(--base) * 10); /* 40 */
+  --size1200: calc(var(--base) * 12); /* 48 */
+  --size2000: calc(var(--base) * 20); /* 80 */
+  --total: 100%;
+
+  /* size */
+  --card-width: calc(var(--base) * 72);
+  --card-max-width: calc(var(--base) * 80);
+
+  /* timing */
+  --anim-dur: 0.3s;
+  --anim-func: ease-in-out;
+  --transition: all var(--anim-dur) var(--anim-func);
+
+  /* shadow */
+  --shadow-small: 
+    /* offsetX */ var(--none)
+    /* offsetY */ var(--size100)
+    /* blur */ var(--size200) 
+    /* spread */ var(--none) 
+    /* color */ var(--shadow-color);
+  --shadow-big: 
+    /* offsetX */ var(--none)
+    /* offsetY */ var(--size1000)
+    /* blur */ var(--size2000) 
+    /* spread */ calc(var(--size1000) * -1) 
+    /* color */ var(--shadow-color);
+
+  /* typography */
+  --main-typography: Arial, sans-serif;
+  --font-strong: bold;
+  --font-regular: normal;
+  --font-size-sm: var(--size350);
+  --font-size-md: var(--size400);
+  --font-height-sm: var(--size400);
+  --font-height-md: var(--size450);
+
+}
+
+/* Resets */
+
 body{
-  background-color: #EEE;
-  color: #222;
+  background-color: var(--bg-page);
+  color: var(--fg-color);
   display: grid;
-  width: calc(100vw - 20px);
-  height: calc(100vh - 20px);
+  width: calc(100vw - var(--size500));
+  height: calc(100vh - var(--size500));
   justify-content: center;
   align-items: center;
-  font-family: Arial, sans-serif;
+  font-family: var(--main-typography);
 }
 
 article.card__container{
   box-sizing: border-box;
-  width: 288px;
-  max-width: 320px;
-  padding: 8px;
-  border-radius: 20px 20px 10px 10px;
-  transition: all 0.3s ease-in-out;
+  width: var(--card-width);
+  max-width: var(--card-max-width);
+  padding: var(--size200);
+  border-radius: var(--size500) var(--size500) var(--size300) var(--size300);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size250);
 }
 
 article.card__container:hover{
-background-color: white;
+background-color: var(--bg-card);
 transform: scale(1.01);
-transition: all 0.3s ease-in-out;
-box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.2);
+box-shadow: var(--shadow-big);
+transition: var(--transition);
+}
+
+article.card__container:hover img.card__image{
+  transform: scale(1.05);
+  transition: var(--transition);
 }
 
 article.card__container > header.card__image-container{
   overflow: hidden;
   position: relative;
-  width: 100%;
+  width: var(--total);
   height: 256px;
-  background-color: #a6a6a6;
-  border-radius: 12px;
-  margin-bottom: 12px;
+  background-color: var(--fg-color-subtle);
+  border-radius: var(--size300);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--size300);
+  box-sizing: border-box;
 }
 
 article.card__container > header.card__image-container > img.card__image{
-  height: 100%;
-  width: 100%;
+  position: absolute;
+  top: var(--none);
+  bottom: var(--none);
+  left: var(--none);
+  right: var(--none);
+  height: var(--total);
+  width: var(--total);
   object-fit: cover;
   object-position: center;
+  transition: var(--transition);
+}
+
+article.card__container > header.card__image-container > div.card__tag-container{
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
 }
 
 article.card__container > header.card__image-container > div.card__tag-container > span.card__tag{
-  position: absolute;
   box-sizing: border-box;
-  top: 14px;
-  left: 12px;
-  background-color: #fff;
-  font-size: 14px;
-  font-weight: bold;
-  letter-spacing: -0.14px;
+  background-color: var(--bg-card);
+  font-size: var(--font-size-sm);
   line-height: 16px;
-  padding: 6px 12px;
-  border-radius: 14px;
+  letter-spacing: -0.14px;
+  font-weight: bold;
+  padding: var(--size150) var(--size300);
+  border-radius: var(--size300);
   max-width: 190px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.15);
+  box-shadow: var(--shadow-small);
 }
 
 article.card__container > header.card__image-container > div.card__tag-container > div.card__fav-trigger{
-  position: absolute;
-  top: 14px;
-  right: 12px;
-  width: 20px;
-  height: 20px;
-  padding: 4px;
+  width: var(--size500);
+  height: var(--size500);
+  padding: var(--size100);
 }
 
 article.card__container > header.card__image-container > div.card__tag-container > div.card__fav-trigger--inactive > svg.icon{
   overflow: visible;
   stroke: #fff;
-  stroke-width: 50px;
-  fill: rgba(0, 0, 0, 0.4);
-  transition: all 0.3s;
+  stroke-width: var(--size1200);
+  fill: var(--inactive-color);
+  transition: var(--transition)
 }
 
 article.card__container > header.card__image-container > div.card__tag-container > div.card__fav-trigger--inactive > svg.icon:hover{
-  fill: rgba(255, 255, 255, 0.4);
-  transition: all 0.3s;
+  fill: var(--active-color);
+  transition: var(--transition);
   cursor: pointer;
 }
 
 article.card__container > header.card__image-container > .card__carousel-control{
-  position: absolute;
-  margin: 0; 
-  padding: 0;
-  line-height: 0;
+  display: flex;
+  justify-content: center;
+  gap: var(--size100);
+  margin: var(--none); 
+  padding:  var(--none); 
+  line-height:  var(--none); 
   list-style-type: none;
-  bottom: 12px;
-  width: 100%;
-  text-align: center;
+  width: var(--total)
 }
 
 article.card__container > header.card__image-container > .card__carousel-control > .card__carousel-item{
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background-color: white;
-  border-radius: 100%;
+  width: var(--size150);
+  height: var(--size150);
+  background-color: var(--bg-card);
+  border-radius: var(--total);
   opacity: 0.6;
 }
 
 article.card__container > header.card__image-container > .card__carousel-control > .card__carousel-item:first-child{
   opacity: 1;
+  z-index: 1; /* Este no lo entiendo, sin z-index ESTE se va patrás */
 }
 
 article.card__container > header.card__image-container > .card__carousel-control > .card__carousel-item:nth-last-child(2){
@@ -116,49 +206,48 @@ article.card__container > header.card__image-container > .card__carousel-control
   transform: scale(0.6);
 }
 
-article.card__container > main.card__text-container{
-  margin-bottom: 10px;
+article.card__container > main.card__text-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size100);
 }
 
-article.card__container > main.card__text-container > p, 
-article.card__container > footer.card__price > p {
-  font-size: 16px;
-  line-height: 18px;
-  font-weight: normal;
+article.card__container > * > p {
+  font-size: var(--font-size-md);
+  line-height: var(--font-height-md);
+  font-weight: var(--font-regular);
   letter-spacing: -0.32px;
-  margin: 0;
-  margin-bottom: 3px;
+  margin: var(--none);
 }
 
 article.card__container > footer.card__price > p {
-  margin-bottom: 0;
+  margin-bottom: var(--none);
 }
 
 article.card__container > main.card__text-container > div.card__title-container{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 3px;
 }
 
 article.card__container > main.card__text-container > div.card__title-container > h2.card__title{
-  font-size: 16px;
-  line-height: 18px;
-  font-weight: bold;
+  font-size: var(--font-size-md);
+  line-height: var(--font-height-md);
+  font-weight: var(--font-strong);
   letter-spacing: -0.64px;
-  margin: 0;
+  margin: var(--none);
 }
 
 article.card__container > main.card__text-container > p.card__description,
 article.card__container > main.card__text-container > p.card__date
 {
-  color: grey;
+  color: var(--fg-color-subtle);
 }
 
 article.card__container > main.card__text-container > div.card__title-container > div.card__rating{
   display: flex;
-  align-items: baseline;
-  gap: 3px;
+  align-items: center;
+  gap: var(--size100);
 }
 
 article.card__container > main.card__text-container > div.card__title-container > div.card__rating > div{
@@ -167,12 +256,11 @@ article.card__container > main.card__text-container > div.card__title-container 
 
 article.card__container > main.card__text-container > div.card__title-container > div.card__rating > div.card__rating-star{
   box-sizing: border-box;
-  width: 18px;
-  height: 18px;
-  padding: 2px;
+  width: var(--size400);
+  height: var(--size400);
 }
 
 article.card__container > footer.card__price > p > span{
-  font-weight: bold;
+  font-weight: var(--font-strong);
 }
 
