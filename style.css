@@ -4,9 +4,9 @@
 
   /* color */
   --fg-color: #222;
-  --fg-color-subtle: grey;
+  --fg-color-subtle: #696969;
   --bg-page: #eee;
-  --bg-card: white;
+  --bg-card: #fff;
   --shadow-color: rgba(0, 0, 0, 0.2);
   --inactive-color: rgba(0, 0, 0, 0.4);
   --active-color: rgba(255, 255, 255, 0.4);
@@ -81,7 +81,7 @@ body{
   font-family: var(--main-typography);
 }
 
-article.card__container{
+.card__container{
   box-sizing: border-box;
   width: var(--card-width);
   max-width: var(--card-max-width);
@@ -93,19 +93,19 @@ article.card__container{
   gap: var(--size250);
 }
 
-article.card__container:hover{
+.card__container:hover{
 background-color: var(--bg-card);
 transform: scale(1.01);
 box-shadow: var(--shadow-big);
 transition: var(--transition);
 }
 
-article.card__container:hover img.card__image{
+.card__container:hover .card__image{
   transform: scale(1.05);
   transition: var(--transition);
 }
 
-article.card__container > header.card__image-container{
+.card__container .card__image-container{
   overflow: hidden;
   position: relative;
   width: var(--total);
@@ -119,7 +119,7 @@ article.card__container > header.card__image-container{
   box-sizing: border-box;
 }
 
-article.card__container > header.card__image-container > img.card__image{
+.card__container .card__image{
   position: absolute;
   top: var(--none);
   bottom: var(--none);
@@ -132,13 +132,13 @@ article.card__container > header.card__image-container > img.card__image{
   transition: var(--transition);
 }
 
-article.card__container > header.card__image-container > div.card__tag-container{
+.card__container .card__tag-container{
   display: flex;
   justify-content: space-between;
   z-index: 1;
 }
 
-article.card__container > header.card__image-container > div.card__tag-container > span.card__tag{
+.card__container .card__tag{
   box-sizing: border-box;
   background-color: var(--bg-card);
   font-size: var(--font-size-sm);
@@ -154,13 +154,13 @@ article.card__container > header.card__image-container > div.card__tag-container
   box-shadow: var(--shadow-small);
 }
 
-article.card__container > header.card__image-container > div.card__tag-container > div.card__fav-trigger{
+.card__container .card__fav-trigger{
   width: var(--size500);
   height: var(--size500);
   padding: var(--size100);
 }
 
-article.card__container > header.card__image-container > div.card__tag-container > div.card__fav-trigger--inactive > svg.icon{
+.card__container .card__fav-trigger--inactive .icon{
   overflow: visible;
   stroke: #fff;
   stroke-width: var(--size1200);
@@ -168,13 +168,13 @@ article.card__container > header.card__image-container > div.card__tag-container
   transition: var(--transition)
 }
 
-article.card__container > header.card__image-container > div.card__tag-container > div.card__fav-trigger--inactive > svg.icon:hover{
+.card__container .card__fav-trigger--inactive .icon:hover{
   fill: var(--active-color);
   transition: var(--transition);
   cursor: pointer;
 }
 
-article.card__container > header.card__image-container > .card__carousel-control{
+.card__container .card__carousel-control{
   display: flex;
   justify-content: center;
   gap: var(--size100);
@@ -185,7 +185,7 @@ article.card__container > header.card__image-container > .card__carousel-control
   width: var(--total)
 }
 
-article.card__container > header.card__image-container > .card__carousel-control > .card__carousel-item{
+.card__container .card__carousel-control .card__carousel-item{
   width: var(--size150);
   height: var(--size150);
   background-color: var(--bg-card);
@@ -193,26 +193,26 @@ article.card__container > header.card__image-container > .card__carousel-control
   opacity: 0.6;
 }
 
-article.card__container > header.card__image-container > .card__carousel-control > .card__carousel-item:first-child{
+.card__container .card__carousel-control .card__carousel-item:first-child{
   opacity: 1;
   z-index: 1; /* Este no lo entiendo, sin z-index ESTE se va patrás */
 }
 
-article.card__container > header.card__image-container > .card__carousel-control > .card__carousel-item:nth-last-child(2){
+.card__container .card__carousel-control .card__carousel-item:nth-last-child(2){
   transform: scale(0.8);
 }
 
-article.card__container > header.card__image-container > .card__carousel-control > .card__carousel-item:last-child{
+.card__container .card__carousel-control .card__carousel-item:last-child{
   transform: scale(0.6);
 }
 
-article.card__container > main.card__text-container {
+.card__container .card__text-container {
   display: flex;
   flex-direction: column;
   gap: var(--size100);
 }
 
-article.card__container > * > p {
+.card__container p {
   font-size: var(--font-size-md);
   line-height: var(--font-height-md);
   font-weight: var(--font-regular);
@@ -220,17 +220,13 @@ article.card__container > * > p {
   margin: var(--none);
 }
 
-article.card__container > footer.card__price > p {
-  margin-bottom: var(--none);
-}
-
-article.card__container > main.card__text-container > div.card__title-container{
+.card__container .card__title-container{
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-article.card__container > main.card__text-container > div.card__title-container > h2.card__title{
+.card__container .card__title{
   font-size: var(--font-size-md);
   line-height: var(--font-height-md);
   font-weight: var(--font-strong);
@@ -238,29 +234,25 @@ article.card__container > main.card__text-container > div.card__title-container 
   margin: var(--none);
 }
 
-article.card__container > main.card__text-container > p.card__description,
-article.card__container > main.card__text-container > p.card__date
+.card__container .card__description,
+.card__container .card__date
 {
   color: var(--fg-color-subtle);
 }
 
-article.card__container > main.card__text-container > div.card__title-container > div.card__rating{
+.card__container .card__rating{
   display: flex;
   align-items: center;
   gap: var(--size100);
 }
 
-article.card__container > main.card__text-container > div.card__title-container > div.card__rating > div{
-  display: inline-block;
-}
-
-article.card__container > main.card__text-container > div.card__title-container > div.card__rating > div.card__rating-star{
+.card__container .card__rating-star{
   box-sizing: border-box;
   width: var(--size400);
   height: var(--size400);
 }
 
-article.card__container > footer.card__price > p > span{
+.card__container .card__price .card__price-amount{
   font-weight: var(--font-strong);
 }
 
