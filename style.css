@@ -142,7 +142,7 @@ article.card__container > header.card__image-container > div.card__tag-container
   box-sizing: border-box;
   background-color: var(--bg-card);
   font-size: var(--font-size-sm);
-  line-height: 16px;
+  line-height: var(--font-height-sm);
   letter-spacing: -0.14px;
   font-weight: bold;
   padding: var(--size150) var(--size300);
