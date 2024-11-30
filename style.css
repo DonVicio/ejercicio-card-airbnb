@@ -44,13 +44,13 @@
   --transition: all var(--anim-dur) var(--anim-func);
 
   /* shadow */
-  --shadow-small: 
+  --elevation-xs: 
     /* offsetX */ var(--none)
     /* offsetY */ var(--size100)
     /* blur */ var(--size200) 
     /* spread */ var(--none) 
     /* color */ var(--shadow-color);
-  --shadow-big: 
+  --elevation-md: 
     /* offsetX */ var(--none)
     /* offsetY */ var(--size1000)
     /* blur */ var(--size2000) 
@@ -96,7 +96,7 @@ body{
 .card__container:hover{
 background-color: var(--bg-card);
 transform: scale(1.01);
-box-shadow: var(--shadow-big);
+box-shadow: var(--elevation-md);
 transition: var(--transition);
 }
 
